@@ -124,12 +124,12 @@
 				<array>
 					<dict>
 						<key>type</key>
-						<string>position</string>
+						<integer>0</integer>
 						<key>start</key>
 						<dict>
 							<key>time</key>
 							<integer>0</integer>
-							<key>point</key>
+							<key>value</key>
 							<array>
 								<dict>
 									<key>id</key>
@@ -169,7 +169,7 @@
 						<dict>
 							<key>time</key>
 							<string>0.3</string>
-							<key>point</key>
+							<key>value</key>
 							<array>
 								<dict>
 									<key>id</key>
@@ -208,12 +208,12 @@
 					</dict>
 					<dict>
 						<key>type</key>
-						<string>position</string>
+						<integer>0</integer>
 						<key>start</key>
 						<dict>
 							<key>time</key>
 							<real>0.3</real>
-							<key>point</key>
+							<key>value</key>
 							<array>
 								<dict>
 									<key>id</key>
@@ -253,7 +253,7 @@
 						<dict>
 							<key>time</key>
 							<string>0.7</string>
-							<key>point</key>
+							<key>value</key>
 							<array>
 								<dict>
 									<key>id</key>
@@ -292,12 +292,12 @@
 					</dict>
 					<dict>
 						<key>type</key>
-						<string>position</string>
+						<integer>0</integer>
 						<key>start</key>
 						<dict>
 							<key>time</key>
 							<real>0.7</real>
-							<key>point</key>
+							<key>value</key>
 							<array>
 								<dict>
 									<key>id</key>
@@ -337,7 +337,7 @@
 						<dict>
 							<key>time</key>
 							<string>1</string>
-							<key>point</key>
+							<key>value</key>
 							<array>
 								<dict>
 									<key>id</key>

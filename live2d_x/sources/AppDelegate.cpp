@@ -5,6 +5,7 @@
 #include "support/CCNotificationCenter.h"
 #include "CCLuaEngine.h"
 #include <string>
+#include "Live2dXSprite.h"
 
 using namespace std;
 using namespace cocos2d;
