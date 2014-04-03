@@ -18,15 +18,18 @@ using namespace std;
 using namespace cocos2d;
 
 typedef ccTex2F Live2dX_UV;
+typedef ccColor4B Live2dX_Color;
 typedef ccVertex3F Live2dX_Vertex;
 
+#define floatAtArray(index,array) ((CCString*)array->objectAtIndex(index))->floatValue()
+#define intAtArray(index,array) ((CCString*)array->objectAtIndex(index))->intValue()
 
 struct Live2dX_Triangle
 {
-    int point_1;
-    int point_2;
-    int point_3;
+    int point[3];
 };//point_n是Live2dX_Unit中，points里Live2dXOriginPoint的Index
+
+typedef list<Live2dX_Triangle> Live2dX_TriangleList;
 
 enum Live2dX_Unit_Animation_Type
 {
@@ -72,6 +75,12 @@ struct Live2dX_Config
     float height;
     map<string,Live2dX_Unit> unit_list;
     map<string,Live2dX_Animations> animation;
+};
+
+struct Live2dX_UnitID
+{
+    int begin_index;
+    int end_index;
 };
 
 

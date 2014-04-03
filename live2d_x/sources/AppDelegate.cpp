@@ -32,6 +32,8 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
+    
+    pDirector->setDisplayStats(true);
 
     // register lua engine
     CCLuaEngine *pEngine = CCLuaEngine::defaultEngine();
@@ -83,8 +85,14 @@ bool AppDelegate::applicationDidFinishLaunching()
     CCLOG("------------------------------------------------");
     CCLOG("LOAD LUA FILE: %s", path.c_str());
     CCLOG("------------------------------------------------");
-    pEngine->executeScriptFile(path.c_str());
-
+//    pEngine->executeScriptFile(path.c_str());
+    
+    Live2dXSprite* sprite = Live2dXSprite::create("res/temp.jpg", "res/temp.plist");
+    CCScene* scene = CCScene::create();
+    sprite->setAnchorPoint(ccp(0, 0));
+    sprite->setPosition(ccp(300,100));
+    scene->addChild(sprite);
+    CCDirector::sharedDirector()->runWithScene(scene);
     return true;
 }
 
