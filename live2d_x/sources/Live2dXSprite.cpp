@@ -38,8 +38,13 @@ bool Live2dXSprite::initWithFile(const char* pictruePath, const char* configPath
 
 bool Live2dXSprite::initWithConfig(const char* pictruePath,CCDictionary* config)
 {
-    convertDictToConfig(config);
-    return cocos2d::CCSprite::initWithFile(pictruePath);
+    bool ret = cocos2d::CCSprite::initWithFile(pictruePath);
+    if(ret)
+    {
+        convertDictToConfig(config);
+        return true;
+    }
+    return false;
 }
 
 void Live2dXSprite::draw()
