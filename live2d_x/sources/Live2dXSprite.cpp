@@ -108,7 +108,7 @@ void Live2dXSprite::convertDictToConfig(CCDictionary* config)
             {
                 CCArray* origin_points = (CCArray*)point->objectAtIndex(point_index[m]);
                 Live2dX_UV uv = {floatAtArray(0,origin_points),floatAtArray(1,origin_points)};
-                Live2dX_Vertex vertex = {floatAtArray(2,origin_points),m_baseSize.height-floatAtArray(3,origin_points),0};
+                Live2dX_Vertex vertex = {floatAtArray(2,origin_points),getContentSize().height-floatAtArray(3,origin_points),0};
                 int point_id = (int)m_orginUV.size();
                 m_orginUV.push_back(uv);
                 m_orginVertex.push_back(vertex);
