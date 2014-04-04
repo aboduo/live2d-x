@@ -19,25 +19,25 @@
 					<integer>0</integer>
 					<integer>0</integer>
 					<integer>0</integer>
-					<integer>0</integer>
+					<integer>424</integer>
 				</array>
 				<array>
 					<integer>0</integer>
 					<integer>1</integer>
 					<integer>0</integer>
-					<integer>424</integer>
+					<integer>0</integer>
 				</array>
 				<array>
 					<integer>1</integer>
 					<integer>0</integer>
 					<integer>355</integer>
-					<integer>0</integer>
+					<integer>424</integer>
 				</array>
 				<array>
 					<integer>1</integer>
 					<integer>1</integer>
 					<integer>355</integer>
-					<integer>424</integer>
+					<integer>0</integer>
 				</array>
 			</array>
 			<key>triangle</key>
@@ -62,37 +62,37 @@
 					<real>0.28169014084507</real>
 					<real>0.47169811320755</real>
 					<integer>100</integer>
-					<integer>200</integer>
+					<integer>224</integer>
 				</array>
 				<array>
 					<real>0.36619718309859</real>
 					<real>0.48584905660377</real>
 					<integer>130</integer>
-					<integer>206</integer>
+					<integer>218</integer>
 				</array>
 				<array>
 					<real>0.44225352112676</real>
 					<real>0.52122641509434</real>
 					<integer>157</integer>
-					<integer>221</integer>
+					<integer>203</integer>
 				</array>
 				<array>
 					<real>0.44507042253521</real>
 					<real>0.58962264150943</real>
 					<integer>158</integer>
-					<integer>250</integer>
+					<integer>174</integer>
 				</array>
 				<array>
 					<real>0.38591549295775</real>
 					<real>0.61792452830189</real>
 					<integer>137</integer>
-					<integer>262</integer>
+					<integer>162</integer>
 				</array>
 				<array>
 					<real>0.30140845070423</real>
 					<real>0.61084905660377</real>
 					<integer>107</integer>
-					<integer>259</integer>
+					<integer>165</integer>
 				</array>
 			</array>
 			<key>triangle</key>
@@ -126,253 +126,178 @@
 						<key>type</key>
 						<integer>0</integer>
 						<key>start</key>
-						<dict>
-							<key>time</key>
-							<integer>0</integer>
-							<key>value</key>
-							<array>
-								<dict>
-									<key>id</key>
-									<integer>1</integer>
-									<key>x</key>
-									<string>130</string>
-									<key>y</key>
-									<string>206</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>2</integer>
-									<key>x</key>
-									<string>157</string>
-									<key>y</key>
-									<string>221</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>3</integer>
-									<key>x</key>
-									<string>158</string>
-									<key>y</key>
-									<string>250</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>4</integer>
-									<key>x</key>
-									<string>137</string>
-									<key>y</key>
-									<string>262</string>
-								</dict>
-							</array>
-						</dict>
+						<integer>0</integer>
 						<key>end</key>
-						<dict>
-							<key>time</key>
-							<string>0.3</string>
-							<key>value</key>
-							<array>
-								<dict>
-									<key>id</key>
-									<integer>1</integer>
-									<key>x</key>
-									<string>130</string>
-									<key>y</key>
-									<string>226</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>2</integer>
-									<key>x</key>
-									<string>157</string>
-									<key>y</key>
-									<string>251</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>3</integer>
-									<key>x</key>
-									<string>158</string>
-									<key>y</key>
-									<string>280</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>4</integer>
-									<key>x</key>
-									<string>137</string>
-									<key>y</key>
-									<string>282</string>
-								</dict>
-							</array>
-						</dict>
+						<real>0.2</real>
+						<key>value</key>
+						<array>
+							<dict>
+								<key>id</key>
+								<integer>1</integer>
+								<key>x</key>
+								<integer>130</integer>
+								<key>y</key>
+								<integer>218</integer>
+								<key>x_move</key>
+								<integer>3</integer>
+								<key>y_move</key>
+								<integer>20</integer>
+							</dict>
+							<dict>
+								<key>id</key>
+								<integer>2</integer>
+								<key>x</key>
+								<integer>157</integer>
+								<key>y</key>
+								<integer>203</integer>
+								<key>x_move</key>
+								<integer>5</integer>
+								<key>y_move</key>
+								<integer>20</integer>
+							</dict>
+							<dict>
+								<key>id</key>
+								<integer>3</integer>
+								<key>x</key>
+								<integer>158</integer>
+								<key>y</key>
+								<integer>174</integer>
+								<key>x_move</key>
+								<integer>0</integer>
+								<key>y_move</key>
+								<integer>20</integer>
+							</dict>
+							<dict>
+								<key>id</key>
+								<integer>4</integer>
+								<key>x</key>
+								<integer>137</integer>
+								<key>y</key>
+								<integer>162</integer>
+								<key>x_move</key>
+								<string>0</string>
+								<key>y_move</key>
+								<string>10</string>
+							</dict>
+						</array>
 					</dict>
 					<dict>
 						<key>type</key>
 						<integer>0</integer>
 						<key>start</key>
-						<dict>
-							<key>time</key>
-							<real>0.3</real>
-							<key>value</key>
-							<array>
-								<dict>
-									<key>id</key>
-									<integer>1</integer>
-									<key>x</key>
-									<string>130</string>
-									<key>y</key>
-									<string>226</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>2</integer>
-									<key>x</key>
-									<string>157</string>
-									<key>y</key>
-									<string>251</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>3</integer>
-									<key>x</key>
-									<string>158</string>
-									<key>y</key>
-									<string>280</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>4</integer>
-									<key>x</key>
-									<string>137</string>
-									<key>y</key>
-									<string>282</string>
-								</dict>
-							</array>
-						</dict>
+						<real>0.2</real>
 						<key>end</key>
-						<dict>
-							<key>time</key>
-							<string>0.7</string>
-							<key>value</key>
-							<array>
-								<dict>
-									<key>id</key>
-									<integer>1</integer>
-									<key>x</key>
-									<string>130</string>
-									<key>y</key>
-									<string>296</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>2</integer>
-									<key>x</key>
-									<string>157</string>
-									<key>y</key>
-									<string>206</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>3</integer>
-									<key>x</key>
-									<string>158</string>
-									<key>y</key>
-									<string>235</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>4</integer>
-									<key>x</key>
-									<string>137</string>
-									<key>y</key>
-									<string>252</string>
-								</dict>
-							</array>
-						</dict>
+						<real>0.8</real>
+						<key>value</key>
+						<array>
+							<dict>
+								<key>id</key>
+								<integer>1</integer>
+								<key>x</key>
+								<integer>135</integer>
+								<key>y</key>
+								<integer>238</integer>
+								<key>x_move</key>
+								<string>2</string>
+								<key>y_move</key>
+								<string>-30</string>
+							</dict>
+							<dict>
+								<key>id</key>
+								<integer>2</integer>
+								<key>x</key>
+								<string>162</string>
+								<key>y</key>
+								<string>223</string>
+								<key>x_move</key>
+								<string>0</string>
+								<key>y_move</key>
+								<string>-35</string>
+							</dict>
+							<dict>
+								<key>id</key>
+								<integer>3</integer>
+								<key>x</key>
+								<string>158</string>
+								<key>y</key>
+								<string>194</string>
+								<key>x_move</key>
+								<string>0</string>
+								<key>y_move</key>
+								<string>-35</string>
+							</dict>
+							<dict>
+								<key>id</key>
+								<integer>4</integer>
+								<key>x</key>
+								<string>137</string>
+								<key>y</key>
+								<string>172</string>
+								<key>x_move</key>
+								<string>0</string>
+								<key>y_move</key>
+								<string>-20</string>
+							</dict>
+						</array>
 					</dict>
 					<dict>
 						<key>type</key>
 						<integer>0</integer>
 						<key>start</key>
-						<dict>
-							<key>time</key>
-							<real>0.7</real>
-							<key>value</key>
-							<array>
-								<dict>
-									<key>id</key>
-									<integer>1</integer>
-									<key>x</key>
-									<string>130</string>
-									<key>y</key>
-									<string>296</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>2</integer>
-									<key>x</key>
-									<string>157</string>
-									<key>y</key>
-									<string>206</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>3</integer>
-									<key>x</key>
-									<string>158</string>
-									<key>y</key>
-									<string>235</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>4</integer>
-									<key>x</key>
-									<string>137</string>
-									<key>y</key>
-									<string>252</string>
-								</dict>
-							</array>
-						</dict>
+						<real>0.8</real>
 						<key>end</key>
-						<dict>
-							<key>time</key>
-							<string>1</string>
-							<key>value</key>
-							<array>
-								<dict>
-									<key>id</key>
-									<integer>1</integer>
-									<key>x</key>
-									<string>130</string>
-									<key>y</key>
-									<string>206</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>2</integer>
-									<key>x</key>
-									<string>157</string>
-									<key>y</key>
-									<string>221</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>3</integer>
-									<key>x</key>
-									<string>158</string>
-									<key>y</key>
-									<string>250</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<integer>4</integer>
-									<key>x</key>
-									<string>137</string>
-									<key>y</key>
-									<string>262</string>
-								</dict>
-							</array>
-						</dict>
+						<integer>1</integer>
+						<key>value</key>
+						<array>
+							<dict>
+								<key>id</key>
+								<integer>1</integer>
+								<key>x</key>
+								<string>133</string>
+								<key>y</key>
+								<string>208</string>
+								<key>x_move</key>
+								<string>-3</string>
+								<key>y_move</key>
+								<string>10</string>
+							</dict>
+							<dict>
+								<key>id</key>
+								<integer>2</integer>
+								<key>x</key>
+								<string>162</string>
+								<key>y</key>
+								<string>188</string>
+								<key>x_move</key>
+								<string>-5</string>
+								<key>y_move</key>
+								<string>15</string>
+							</dict>
+							<dict>
+								<key>id</key>
+								<integer>3</integer>
+								<key>x</key>
+								<string>158</string>
+								<key>y</key>
+								<string>159</string>
+								<key>x_move</key>
+								<string>0</string>
+								<key>y_move</key>
+								<string>15</string>
+							</dict>
+							<dict>
+								<key>id</key>
+								<integer>4</integer>
+								<key>x</key>
+								<string>137</string>
+								<key>y</key>
+								<string>152</string>
+								<key>x_move</key>
+								<string>0</string>
+								<key>y_move</key>
+								<string>10</string>
+							</dict>
+						</array>
 					</dict>
 				</array>
 			</dict>
@@ -388,7 +313,7 @@
 				<key>anim_name</key>
 				<string>rock</string>
 				<key>time</key>
-				<real>0.8</real>
+				<integer>1</integer>
 				<key>delay</key>
 				<integer>0</integer>
 			</dict>

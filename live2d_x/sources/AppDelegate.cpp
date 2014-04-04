@@ -22,6 +22,21 @@ AppDelegate::~AppDelegate()
     // end simple audio engine here, or it may crashed on win32
     SimpleAudioEngine::sharedEngine()->end();
 }
+static Live2dXSprite* s_sprite;
+int lua_init_sprite(lua_State *L)
+{
+    s_sprite = Live2dXSprite::create("res/temp.jpg", "res/temp.plist");
+    s_sprite->setAnchorPoint(ccp(0, 0));
+    s_sprite->setPosition(ccp(100,50));
+    CCDirector::sharedDirector()->getRunningScene()->addChild(s_sprite);
+    return 0;
+}
+
+int lua_ruyao(lua_State *L)
+{
+    s_sprite->runAnimation("ruyao");
+    return 0;
+}
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
@@ -81,18 +96,18 @@ bool AppDelegate::applicationDidFinishLaunching()
     env.append(path);
     env.append("\"");
     pEngine->executeString(env.c_str());
-
+    
+    lua_pushcfunction(pStack->getLuaState(), lua_init_sprite);
+    lua_setglobal(pStack->getLuaState(), "init_sprite");
+    lua_pushcfunction(pStack->getLuaState(), lua_ruyao);
+    lua_setglobal(pStack->getLuaState(), "ruyao");
+    
     CCLOG("------------------------------------------------");
     CCLOG("LOAD LUA FILE: %s", path.c_str());
     CCLOG("------------------------------------------------");
-//    pEngine->executeScriptFile(path.c_str());
+    pEngine->executeScriptFile(path.c_str());
     
-    Live2dXSprite* sprite = Live2dXSprite::create("res/temp.jpg", "res/temp.plist");
-    CCScene* scene = CCScene::create();
-    sprite->setAnchorPoint(ccp(0, 0));
-    sprite->setPosition(ccp(300,100));
-    scene->addChild(sprite);
-    CCDirector::sharedDirector()->runWithScene(scene);
+    
     return true;
 }
 
