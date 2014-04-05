@@ -21,6 +21,8 @@ function MainScene:onEnter()
     self.ui = UILayer.new()
     self:addChild(self.ui)
     self.ui:initialize()
+    
+    init_sprite()
 end
 
 function MainScene:onExit()

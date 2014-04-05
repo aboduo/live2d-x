@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66777B0018EDC6E500D84BC1 /* Live2dXSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66777AFD18EDC6E500D84BC1 /* Live2dXSprite.cpp */; };
 		F4323CF716D3298E0072B773 /* libquickcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F48F590816D21F8C000651BE /* libquickcocos2dx.a */; };
 		F4482F2116A0555000FDDDAD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4482F1A16A0555000FDDDAD /* Default-568h@2x.png */; };
 		F4482F2216A0555000FDDDAD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F4482F1B16A0555000FDDDAD /* Default.png */; };
@@ -49,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66777AFD18EDC6E500D84BC1 /* Live2dXSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Live2dXSprite.cpp; sourceTree = "<group>"; };
+		66777AFE18EDC6E500D84BC1 /* Live2dXSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Live2dXSprite.h; sourceTree = "<group>"; };
+		66777AFF18EDC6E500D84BC1 /* Live2dXTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Live2dXTypes.h; sourceTree = "<group>"; };
 		F4482F1A16A0555000FDDDAD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F4482F1B16A0555000FDDDAD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F4482F1C16A0555000FDDDAD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -215,6 +219,9 @@
 		F4E50FE216CF7B6500AA7E90 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				66777AFD18EDC6E500D84BC1 /* Live2dXSprite.cpp */,
+				66777AFE18EDC6E500D84BC1 /* Live2dXSprite.h */,
+				66777AFF18EDC6E500D84BC1 /* Live2dXTypes.h */,
 				F4E50FE316CF7B6500AA7E90 /* AppDelegate.cpp */,
 				F4E50FE416CF7B6500AA7E90 /* AppDelegate.h */,
 				F4F34ED0183CD04B0077580F /* SimulatorConfig.cpp */,
@@ -310,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4D26BCC16C7D0D2004442B6 /* AppController.mm in Sources */,
+				66777B0018EDC6E500D84BC1 /* Live2dXSprite.cpp in Sources */,
 				F4D26BCD16C7D0D2004442B6 /* main.m in Sources */,
 				F4F34ED2183CD04B0077580F /* SimulatorConfig.cpp in Sources */,
 				F4D26BCE16C7D0D2004442B6 /* RootViewController.mm in Sources */,
@@ -481,7 +489,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -550,7 +558,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;

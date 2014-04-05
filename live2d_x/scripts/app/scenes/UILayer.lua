@@ -19,10 +19,11 @@ function UILayer:initialize( )
 end
 
 function UILayer:on_btn_openfile_click( )
-	local result = device.showInputBox("打开文件", "输入配置文件或图片绝对路径", "temp.jpg")
-	if result == "" then
-		-- result = "temp.jpg"
-	else
-		main:setTexture(result)
-	end
+	-- local result = device.showInputBox("打开文件", "输入配置文件或图片绝对路径", "temp.jpg")
+	-- if result == "" then
+	-- 	-- result = "temp.jpg"
+	-- else
+	-- 	main:setTexture(result)
+	-- end
+	ruyao()
 end
