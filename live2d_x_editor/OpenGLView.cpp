@@ -74,12 +74,6 @@ void OpenGLView::initializeGL()
 
 void OpenGLView::paintGL()
 {
-    qDebug()<< "------";
-    qDebug()<<context()->device()->widthMM()
-              <<context()->device()->logicalDpiX()
-                <<contentsRect()
-                  <<context()->device()->physicalDpiX();
-//    setGeometry(0,0,m_primary->getBaseSize().width,m_primary->getBaseSize().height);
     //清除屏幕和深度缓存
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     

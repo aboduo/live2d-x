@@ -3,7 +3,9 @@ live2d-x
   
 这是一个把2D图像绘制成像3D的开源项目  
 因为Live2D（一款日本的同功能软件）是收费的，因此有了这个项目  
-插件用于Cocos2D-X，测试工程为quick-x，编辑器使用QT  
+插件用于Cocos2D-X，测试工程为quick-x，编辑器使用QT   
+目前只有MAC上能运行，WIN请自行配置开发环境
+Quick-Cocos2d-X需要Run proj.mac下的工程
   
 里程碑：  
 	1、以固定配置生成live2d动画（完成）；  
@@ -26,4 +28,5 @@ live2d-x
 This is a opensource project for draw 2D to 3D  
 Because the Live2D(a same feature software by Japanese) need pay, so has this.  
 It's using in Cocos2D-X,test project is a quick-x project,editor creat for QT  
-
+Now it's Mac only, if your platform is Win,configure the development environment please.
+You need Run project in proj.mac,then Quick-Cocos2d-X.

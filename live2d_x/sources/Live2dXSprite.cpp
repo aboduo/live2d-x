@@ -64,8 +64,8 @@ void Live2dXSprite::draw()
         CCTime::gettimeofdayCocos2d(&nowTime, NULL);
         float deltime = (float)(nowTime.tv_sec - m_nowTime.tv_sec) + (float)(nowTime.tv_usec - m_nowTime.tv_usec)/1000000.0f;
         m_nowTime = nowTime;
-//        animationUpdate(deltime);
-        animationUpdate(1/30.0f);
+        animationUpdate(deltime);
+//        animationUpdate(1/30.0f);
     }
 #define Live2dX_Vertex_Size sizeof(Live2dX_Vertex)
 #define Live2dX_UV_Size sizeof(Live2dX_UV)
