@@ -21,6 +21,11 @@ void EditorWindow::on_pushButton_clicked()
 //    ui->widget->repaint();
 }
 
+void EditorWindow::setSizeOrgin(int w,int h)
+{
+    ui->scrollArea->setMinimumSize(w,h);
+}
+
 void EditorWindow::on_pushButton_2_clicked()
 {
     ui->widget->m_primary->runAnimation("ruyao");

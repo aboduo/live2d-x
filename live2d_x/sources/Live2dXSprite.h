@@ -24,6 +24,7 @@ public:
     bool initWithConfig( const char* configPath);
     void draw();
     void runAnimation(string name);
+    const CCSize& getBaseSize(){return m_baseSize;}
 private:
     void convertDictToConfig(CCDictionary* config);
     void animationUpdate(float time);

@@ -1,4 +1,5 @@
 #include "OpenGLView.h"
+#include "EditorWindow.h"
 
 OpenGLView::OpenGLView(QWidget* parent)
     :QGLWidget(parent)
@@ -43,6 +44,7 @@ void OpenGLView::initializeGL()
     //正式创建纹理
     glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,tex.width(),tex.height(),0,GL_RGBA,GL_UNSIGNED_BYTE,tex.bits());
     
+    ((EditorWindow*)window())->setSizeOrgin(tex.width(),tex.height());
     //设置纹理缩放显示时的模式
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
@@ -72,6 +74,12 @@ void OpenGLView::initializeGL()
 
 void OpenGLView::paintGL()
 {
+    qDebug()<< "------";
+    qDebug()<<context()->device()->widthMM()
+              <<context()->device()->logicalDpiX()
+                <<contentsRect()
+                  <<context()->device()->physicalDpiX();
+//    setGeometry(0,0,m_primary->getBaseSize().width,m_primary->getBaseSize().height);
     //清除屏幕和深度缓存
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
@@ -99,20 +107,3 @@ void OpenGLView::paintGL()
 //    glEnd();
 }
 
-void OpenGLView::resizeGL(int w, int h)
-{
-    if(h == 0)
-        h=1;
-    if(w == 0)
-        w=1;
-    
-    glViewport(0,0,(GLint)w,(GLint)h);
-    
-    glMatrixMode(GL_PROJECTION);
-    
-    glLoadIdentity();
-    
-    glMatrixMode(GL_MODELVIEW);
-    
-    glLoadIdentity();
-}

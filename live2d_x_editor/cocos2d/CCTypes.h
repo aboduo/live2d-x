@@ -11,6 +11,7 @@
 #include <QFile>
 #include <QGLShaderProgram>
 #include <QGLShader>
+#include <QDebug>
 
 #include <math.h>
 

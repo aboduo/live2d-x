@@ -14,7 +14,7 @@ class EditorWindow : public QMainWindow
 public:
     explicit EditorWindow(QWidget *parent = 0);
     ~EditorWindow();
-    
+    void setSizeOrgin(int,int);
 private slots:
     void on_pushButton_clicked();
     
