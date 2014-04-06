@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		66A4486818EB0CDA006B03AE /* Live2dXSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A4486618EB0CDA006B03AE /* Live2dXSprite.cpp */; };
+		66C0030118F04F08008259F1 /* Live2dXSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66C002FE18F04F08008259F1 /* Live2dXSprite.cpp */; };
 		F40EE898163F83E000090121 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44C957915F49004004D4151 /* AppKit.framework */; };
 		F416EF01177E8F1600653960 /* PlayerPreferencesDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = F416EF00177E8F1600653960 /* PlayerPreferencesDialog.xib */; };
 		F416EF04177E914600653960 /* PlayerPreferencesDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = F416EF03177E914600653960 /* PlayerPreferencesDialogController.m */; };
@@ -46,9 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		66A4486618EB0CDA006B03AE /* Live2dXSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Live2dXSprite.cpp; sourceTree = "<group>"; };
-		66A4486718EB0CDA006B03AE /* Live2dXSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Live2dXSprite.h; sourceTree = "<group>"; };
-		66A4486A18EB132A006B03AE /* Live2dXTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Live2dXTypes.h; sourceTree = "<group>"; };
+		66C002FE18F04F08008259F1 /* Live2dXSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Live2dXSprite.cpp; sourceTree = "<group>"; };
+		66C002FF18F04F08008259F1 /* Live2dXSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Live2dXSprite.h; sourceTree = "<group>"; };
+		66C0030018F04F08008259F1 /* Live2dXTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Live2dXTypes.h; sourceTree = "<group>"; };
 		F416EF00177E8F1600653960 /* PlayerPreferencesDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerPreferencesDialog.xib; sourceTree = "<group>"; };
 		F416EF02177E914600653960 /* PlayerPreferencesDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPreferencesDialogController.h; sourceTree = "<group>"; };
 		F416EF03177E914600653960 /* PlayerPreferencesDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPreferencesDialogController.m; sourceTree = "<group>"; };
@@ -196,13 +196,13 @@
 		F4B08159175C8A1E0029F472 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				66C002FE18F04F08008259F1 /* Live2dXSprite.cpp */,
+				66C002FF18F04F08008259F1 /* Live2dXSprite.h */,
+				66C0030018F04F08008259F1 /* Live2dXTypes.h */,
 				F4B0815A175C8A1E0029F472 /* AppDelegate.cpp */,
 				F4B0815B175C8A1E0029F472 /* AppDelegate.h */,
 				F4B0815C175C8A1E0029F472 /* SimulatorConfig.cpp */,
 				F4B0815D175C8A1E0029F472 /* SimulatorConfig.h */,
-				66A4486618EB0CDA006B03AE /* Live2dXSprite.cpp */,
-				66A4486718EB0CDA006B03AE /* Live2dXSprite.h */,
-				66A4486A18EB132A006B03AE /* Live2dXTypes.h */,
 			);
 			name = sources;
 			path = ../sources;
@@ -291,7 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4B0814A175C89050029F472 /* AppController.mm in Sources */,
-				66A4486818EB0CDA006B03AE /* Live2dXSprite.cpp in Sources */,
+				66C0030118F04F08008259F1 /* Live2dXSprite.cpp in Sources */,
 				F4B0814F175C89050029F472 /* main.m in Sources */,
 				F4B0815E175C8A1E0029F472 /* AppDelegate.cpp in Sources */,
 				F4B0815F175C8A1E0029F472 /* SimulatorConfig.cpp in Sources */,

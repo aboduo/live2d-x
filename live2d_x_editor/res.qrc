@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>temp.jpg</file>
+        <file>temp.plist</file>
+    </qresource>
+</RCC>

@@ -21,7 +21,7 @@ public:
     
 public:
     bool initWithFile(const char* pictruePath, const char* configPath);
-    bool initWithConfig(const char* pictruePath,CCDictionary* config);
+    bool initWithConfig( const char* configPath);
     void draw();
     void runAnimation(string name);
 private:

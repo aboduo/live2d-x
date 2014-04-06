@@ -14,8 +14,18 @@
 #include <map>
 using namespace std;
 
+#ifndef __QT__
 #include "cocos2d.h"
 using namespace cocos2d;
+#else
+
+#include "../../live2d_x_editor/cocos2d/CCTypes.h"
+#include "../../live2d_x_editor/cocos2d/CCString.h"
+#include "../../live2d_x_editor/cocos2d/CCSprite.h"
+#include "../../live2d_x_editor/cocos2d/CCDictionary.h"
+#include "../../live2d_x_editor/cocos2d/CCTime.h"
+
+#endif
 
 typedef ccTex2F Live2dX_UV;
 typedef ccColor4B Live2dX_Color;
@@ -36,39 +46,6 @@ enum Live2dX_Animation_Type
 {
     Live2dX_Animation_Position = 0,
 };
-//
-//struct Live2dX_Unit_Animation_KeyFrame
-//{
-//    float time;
-//    CCObject* value;
-//};
-//
-//struct Live2dX_Unit_Animation
-//{
-//    Live2dX_Unit_Animation_Type type;
-//    Live2dX_Unit_Animation_KeyFrame start;
-//    Live2dX_Unit_Animation_KeyFrame end;
-//};
-
-//typedef list<Live2dX_Unit_Animation> Live2dX_Unit_Animations;
-
-//struct Live2dX_Unit
-//{
-//    vector<Live2dX_UV> uvs;
-//    vector<Live2dX_Vertex> defaults;
-//    list<Live2dX_Triangle> triangles;
-////    map<string,Live2dX_Unit_Animations> animations;
-//};
-
-//struct Live2dX_Animation
-//{
-//    string unit_name;
-//    string anim_name;
-//    float time;
-//    float delay;
-//};
-
-//typedef list<Live2dX_Animation> Live2dX_Animations;
 
 struct Live2dX_Unit_Anim_Pos
 {

@@ -33,16 +33,20 @@ Live2dXSprite* Live2dXSprite::create(const char* pictruePath, const char* config
 
 bool Live2dXSprite::initWithFile(const char* pictruePath, const char* configPath)
 {
-    CCDictionary* dict = CCDictionary::createWithContentsOfFile(configPath);
-    return initWithConfig(pictruePath, dict);
-}
-
-bool Live2dXSprite::initWithConfig(const char* pictruePath,CCDictionary* config)
-{
-    bool ret = cocos2d::CCSprite::initWithFile(pictruePath);
+    bool ret = CCSprite::initWithFile(pictruePath);
     if(ret)
     {
-        convertDictToConfig(config);
+        return initWithConfig(configPath);
+    }
+    return false;
+}
+
+bool Live2dXSprite::initWithConfig( const char* configPath)
+{
+    CCDictionary* dict = CCDictionary::createWithContentsOfFile(configPath);
+    if(dict)
+    {
+        convertDictToConfig(dict);
         return true;
     }
     return false;
@@ -50,14 +54,24 @@ bool Live2dXSprite::initWithConfig(const char* pictruePath,CCDictionary* config)
 
 void Live2dXSprite::draw()
 {
+    if(!m_pobTexture)
+    {
+        return;
+    }
     if(m_isAnimation)
     {
         cc_timeval nowTime;
         CCTime::gettimeofdayCocos2d(&nowTime, NULL);
         float deltime = (float)(nowTime.tv_sec - m_nowTime.tv_sec) + (float)(nowTime.tv_usec - m_nowTime.tv_usec)/1000000.0f;
         m_nowTime = nowTime;
-        animationUpdate(deltime);
+//        animationUpdate(deltime);
+        animationUpdate(1/30.0f);
     }
+#define Live2dX_Vertex_Size sizeof(Live2dX_Vertex)
+#define Live2dX_UV_Size sizeof(Live2dX_UV)
+#define Live2dX_Color_Size sizeof(Live2dX_Color)
+    
+#ifndef __QT__
     CC_PROFILER_START_CATEGORY(kCCProfilerCategorySprite, "CCSprite - draw");
     
     CCAssert(!m_pobBatchNode, "If CCSprite is being rendered by CCSpriteBatchNode, CCSprite#draw SHOULD NOT be called");
@@ -68,10 +82,7 @@ void Live2dXSprite::draw()
     
     ccGLBindTexture2D( m_pobTexture->getName() );
     ccGLEnableVertexAttribs( kCCVertexAttribFlag_PosColorTex );
-    
-#define Live2dX_Vertex_Size sizeof(Live2dX_Vertex)
-#define Live2dX_UV_Size sizeof(Live2dX_UV)
-#define Live2dX_Color_Size sizeof(Live2dX_Color)
+
     
     // vertex
     glVertexAttribPointer(kCCVertexAttrib_Position, 3, GL_FLOAT, GL_FALSE, Live2dX_Vertex_Size, (void*)m_nowVertex.data());
@@ -80,7 +91,6 @@ void Live2dXSprite::draw()
     glVertexAttribPointer(kCCVertexAttrib_TexCoords, 2, GL_FLOAT, GL_FALSE, Live2dX_UV_Size, (void*)m_orginUV.data());
     
     // color
-//    diff = offsetof( ccV3F_C4B_T2F, colors);
     glVertexAttribPointer(kCCVertexAttrib_Color, 4, GL_UNSIGNED_BYTE, GL_TRUE, Live2dX_Color_Size, (void*)m_orginColor.data());
     
     
@@ -91,37 +101,64 @@ void Live2dXSprite::draw()
     CC_INCREMENT_GL_DRAWS(1);
     
     CC_PROFILER_STOP_CATEGORY(kCCProfilerCategorySprite, "CCSprite - draw");
+#else
+    
+    glTranslatef(0,0,0);
+    glEnable(GL_BLEND);
+    
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+    glBindTexture(GL_TEXTURE_2D,m_pobTexture->m_name);
+    
+    for(int i = 0; i < m_nowVertex.size();i+=3)
+    {
+        float a,b;
+        glBegin(GL_TRIANGLES);
+        glColor4f(1,1,1,1);
+        glTexCoord2f(m_orginUV[i].u,1-m_orginUV[i].v);
+        a = m_nowVertex[i].x * 2 / m_baseSize.width - 1;
+        b = m_nowVertex[i].y * 2 / m_baseSize.height-1;
+        glVertex3f(a,b,0);
+        glColor4f(1,1,1,1);
+        glTexCoord2f(m_orginUV[i+1].u,1-m_orginUV[i+1].v);
+        a = m_nowVertex[i+1].x * 2 / m_baseSize.width - 1;
+        b = m_nowVertex[i+1].y * 2 / m_baseSize.height-1;
+        glVertex3f(a,b,0);
+        glColor4f(1,1,1,1);
+        glTexCoord2f(m_orginUV[i+2].u,1-m_orginUV[i+2].v);
+        a = m_nowVertex[i+2].x * 2 / m_baseSize.width - 1;
+        b = m_nowVertex[i+2].y * 2 / m_baseSize.height-1;
+        glVertex3f(a,b,0);
+        glColor4f(1,1,1,1);
+        glEnd();
+    }
+#endif
 }
 
 void Live2dXSprite::runAnimation(string name)
 {
     map<string, Live2dX_Anims>::iterator iter = m_all_anims.find(name);
-    if(iter != m_all_anims.end())
+    CC_ASSERT(iter != m_all_anims.end());
+    m_animNowTime = 0;
+    m_nowVertex = m_orginVertex;
+    m_animTime = 0;
+    
+    m_curAnims = &iter->second;
+    for (Live2dX_Anims::iterator iter2 = m_curAnims->begin();
+         iter2 != m_curAnims->end(); ++iter2)
     {
-        m_animNowTime = 0;
-        m_nowVertex = m_orginVertex;
-        m_animTime = 0;
-        
-        m_curAnims = &iter->second;
-        for (Live2dX_Anims::iterator iter2 = m_curAnims->begin();
-             iter2 != m_curAnims->end(); ++iter2)
+        float time = iter2->delay+iter2->time;
+        if (time > m_animTime)
         {
-            float time = iter2->delay+iter2->time;
-            if (time > m_animTime)
-            {
-                m_animTime = time;
-            }
+            m_animTime = time;
         }
-        CCTime::gettimeofdayCocos2d(&m_nowTime, NULL);
-        m_isAnimation = true;
-        return;
     }
-    CCLOG("未找到该动画");
+    CCTime::gettimeofdayCocos2d(&m_nowTime, NULL);
+    m_isAnimation = true;
 }
 
 void Live2dXSprite::animationUpdate(float time)
 {
-    m_animNowTime += 1/30.0f;//time;
+    m_animNowTime += time;
     if (m_animNowTime >= m_animTime) {
         m_animNowTime = m_animTime;
         m_isAnimation = false;
@@ -156,7 +193,8 @@ void Live2dXSprite::animationUpdate(float time)
                                 {
                                     if (trian.orginPoint[i] == pos_id)
                                     {
-                                        m_nowVertex[trian.point[i]] = {x,y,0};
+                                        Live2dX_Vertex value = {x,y,0};
+                                        m_nowVertex[trian.point[i]] = value;
 //                                        CCLOG("%d:%f,%f",trian.point[i],x,y);
                                     }
                                 }
@@ -241,12 +279,14 @@ void Live2dXSprite::convertDictToConfig(CCDictionary* config)
                     {
                         CCDictionary* value_item = (CCDictionary*)value->objectAtIndex(n);
                         
-                        anim_pos[value_item->valueForKey("id")->intValue()] = {
+                        Live2dX_Unit_Anim_Pos value  = {
                             value_item->valueForKey("x")->floatValue(),
                             value_item->valueForKey("y")->floatValue(),
                             value_item->valueForKey("x_move")->floatValue(),
                             value_item->valueForKey("y_move")->floatValue(),
                         };
+                        
+                        anim_pos[value_item->valueForKey("id")->intValue()] = value;
                     }
                     m_all_point_move.push_back(anim_pos);
                     unit_anims2.push_back(anim);
@@ -257,7 +297,7 @@ void Live2dXSprite::convertDictToConfig(CCDictionary* config)
     
     CCDictionary* animation = (CCDictionary*)config->objectForKey("animation");
     CCArray* animation_names = animation->allKeys();
-    for (int i = 0; i < animation_names->count(); ++i)
+    for (int i = 0;animation_names != NULL && i < animation_names->count(); ++i)
     {
         CCString* animation_name = (CCString*)animation_names->objectAtIndex(i);
         CCArray* animation_items = (CCArray*)animation->objectForKey(animation_name->m_sString);
@@ -265,12 +305,13 @@ void Live2dXSprite::convertDictToConfig(CCDictionary* config)
         for (int k = 0; k < animation_items->count(); ++k)
         {
             CCDictionary* animation_item = (CCDictionary*)animation_items->objectAtIndex(k);
-            anim_list.push_back({
+            Live2dX_Anim value = {
                 &m_all_unitanims[animation_item->valueForKey("unit_name")->m_sString][animation_item->valueForKey("anim_name")->m_sString],
                 animation_item->valueForKey("unit_name")->m_sString,
                 animation_item->valueForKey("delay")->floatValue(),
                 animation_item->valueForKey("time")->floatValue()
-            });
+            };
+            anim_list.push_back(value);
         }
     }
 }
