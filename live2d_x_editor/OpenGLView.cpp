@@ -11,7 +11,7 @@ OpenGLView::OpenGLView(QWidget* parent)
 bool OpenGLView::loadImages(const QString& imagepath,const QString& configPath)
 {
     m_primary->initWithConfig(configPath.toStdString().c_str());
-    timer.start(1/60,this);
+    timer.start(1000/30.0f,this);
 }
 
 void OpenGLView::timerEvent(QTimerEvent *)
@@ -44,13 +44,13 @@ void OpenGLView::initializeGL()
     //正式创建纹理
     glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,tex.width(),tex.height(),0,GL_RGBA,GL_UNSIGNED_BYTE,tex.bits());
     
-    ((EditorWindow*)window())->setSizeOrgin(tex.width(),tex.height());
+//    ((EditorWindow*)window())->setSizeOrgin(tex.width(),tex.height());
     //设置纹理缩放显示时的模式
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
 
     m_primary->m_pobTexture->m_name = m_id;
-//    setGeometry(0,0,tex.width(),tex.height());
+    setGeometry(0,0,tex.width(),tex.height());
     setMinimumSize(tex.width(),tex.height());
     setMaximumSize(tex.width(),tex.height());
     glEnable(GL_TEXTURE_2D);
@@ -79,6 +79,9 @@ void OpenGLView::paintGL()
     
     //重置当前的模型观察矩阵
     glLoadIdentity();
+    int left,top,right,bottom;
+    EditorWindow::getInstance()->getGLWidgetOffset(&left,&top,&right,&bottom);
+    glViewport(left-1,bottom-1,m_primary->getBaseSize().width,m_primary->getBaseSize().height);
     
     m_primary->draw();
 //    glTranslatef(0,0,0);

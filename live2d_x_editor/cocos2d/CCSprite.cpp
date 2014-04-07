@@ -27,6 +27,8 @@ CCSprite::CCSprite()
 
 CCSprite::~CCSprite()
 {
+    if(m_pobTexture->m_name!=0)
+        glDeleteTextures(1,&m_pobTexture->m_name);
     if(m_pobTexture) delete m_pobTexture;
 }
 
