@@ -81,7 +81,7 @@ void OpenGLView::paintGL()
     glLoadIdentity();
     int left,top,right,bottom;
     EditorWindow::getInstance()->getGLWidgetOffset(&left,&top,&right,&bottom);
-    glViewport(left-1,bottom-1,m_primary->getBaseSize().width,m_primary->getBaseSize().height);
+    glViewport(left,bottom,m_primary->getBaseSize().width,m_primary->getBaseSize().height);
     
     m_primary->draw();
 //    glTranslatef(0,0,0);

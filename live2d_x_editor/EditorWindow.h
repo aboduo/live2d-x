@@ -2,6 +2,8 @@
 #define EDITORWINDOW_H
 
 #include <QMainWindow>
+#include <QScrollBar>
+#include <QRegion>
 
 namespace Ui {
 class EditorWindow;

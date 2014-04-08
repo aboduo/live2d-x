@@ -14,6 +14,7 @@ EditorWindow::EditorWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     _instace = this;
+//    ui->view_area_scroll->setWidgetResizable(false);
 }
 
 EditorWindow::~EditorWindow()
@@ -36,7 +37,9 @@ void EditorWindow::setSizeOrgin(int w,int h)
 
 void EditorWindow::getGLWidgetOffset(int *left, int *top, int *right, int *bottom)
 {
-    ui->view_area_scroll->getContentsMargins(left,top,right,bottom);
+    QRect rect = ui->view_area_glwidget->visibleRegion().boundingRect();
+    *left = -rect.left();
+    *bottom = rect.height() - ui->view_area_glwidget->geometry().height() + rect.top();
 }
 
 
