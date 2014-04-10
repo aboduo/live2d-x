@@ -84,23 +84,5 @@ void OpenGLView::paintGL()
     glViewport(left,bottom,m_primary->getBaseSize().width,m_primary->getBaseSize().height);
     
     m_primary->draw();
-//    glTranslatef(0,0,0);
-//    glEnable(GL_BLEND);
-    
-//    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-//    glBindTexture(GL_TEXTURE_2D,m_id);
-    
-//    glBegin(GL_TRIANGLES);
-//    glColor4f(1,1,1,1);
-//    glTexCoord2f(0,0);glVertex3f(-1,-1,0);glColor4f(1,1,1,1);
-//    glTexCoord2f(1,0);glVertex3f(1,-1,0);glColor4f(1,1,1,1);
-//    glTexCoord2f(1,1);glVertex3f(1,1,0);glColor4f(1,1,1,1);
-//    glEnd();
-//    glBegin(GL_TRIANGLES);
-//    glColor4f(1,1,1,1);
-//    glTexCoord2f(0,0);glVertex3f(-1,-1,0);glColor4f(1,1,1,1);
-//    glTexCoord2f(0,1);glVertex3f(-1,1,0);glColor4f(1,1,1,1);
-//    glTexCoord2f(1,1);glVertex3f(1,1,0);glColor4f(1,1,1,1);
-//    glEnd();
 }
 
