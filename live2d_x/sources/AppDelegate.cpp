@@ -6,6 +6,7 @@
 #include "CCLuaEngine.h"
 #include <string>
 #include "Live2dXSprite.h"
+#include "Live2dXAnimManager.h"
 
 using namespace std;
 using namespace cocos2d;

@@ -27,6 +27,8 @@ using namespace cocos2d;
 
 #endif
 
+typedef CCPoint Live2dX_Pos;
+typedef CCSize Live2dX_Size;
 typedef ccTex2F Live2dX_UV;
 typedef ccColor4B Live2dX_Color;
 typedef ccVertex3F Live2dX_Vertex;
