@@ -103,7 +103,7 @@ void Live2dXSprite::draw()
     CC_PROFILER_STOP_CATEGORY(kCCProfilerCategorySprite, "CCSprite - draw");
 #else
     
-    glTranslatef(0,0,0);
+    glTranslatef(-0.5f,0,0);
     glEnable(GL_BLEND);
     
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);

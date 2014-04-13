@@ -11,20 +11,22 @@
 
 #include <iostream>
 #include "Live2dXUnit.h"
+#include "Live2dXUnitAnimation.h"
 
-class Live2dXGrid
+class Live2dXNode;
+class Live2dXGrid:public CCNode
 {
 public:
     Live2dXGrid();
     ~Live2dXGrid();
-    void visit();
+    void draw();
 private:
-    Live2dXUnit* m_bind_unit;//绑定的部件
     Live2dX_Pos m_grid_handler[8]; //曲面网格的8个手柄端点（4端点，每端点2个）
-    Live2dX_Pos m_orgin_point; //本网格在父网格中的初始坐标
-    vector<Live2dXGrid*> m_children;
-    Live2dXGrid* m_parent;
-    Live2dX_Size m_size;
+    Live2dXUnit* m_bind_unit;
+    int m_width_count; //宽的网格数
+    int m_height_count; //高的网格数
+    int m_z;
+    vector<Live2dXUnitAnimation*> m_all_unit_animations;
 };
 
 #endif /* defined(__live2d_x__Live2dXGrid__) */

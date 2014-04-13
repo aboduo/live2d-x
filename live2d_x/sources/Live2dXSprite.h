@@ -10,7 +10,7 @@
 #define __live2d_x__Live2dXSprite__
 
 #include <iostream>
-#include "Live2dXTypes.h"
+#include "live2d_x/Live2dXTypes.h"
 
 class Live2dXSprite: public CCSprite
 {

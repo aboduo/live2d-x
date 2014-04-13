@@ -22,7 +22,7 @@ Quick-Cocos2d-X需要Run proj.mac下的工程
 	3、添加更多动画类型  
   
 当前目标：  
-	制作编辑器  
+	优化底层  
   
 ========   
 This is a opensource project for draw 2D to 3D  

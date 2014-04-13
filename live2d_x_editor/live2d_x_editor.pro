@@ -28,7 +28,7 @@ SOURCES += main.cpp\
 
 HEADERS  += EditorWindow.h \
     OpenGLView.h \ 
-    ../live2d_x/sources/Live2dXTypes.h \
+    ../live2d_x/sources/live2d_x/Live2dXTypes.h \
     ../live2d_x/sources/Live2dXSprite.h \
     cocos2d/PlistParser.h \
     cocos2d/CCString.h \

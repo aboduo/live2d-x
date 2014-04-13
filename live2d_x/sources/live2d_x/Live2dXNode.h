@@ -16,20 +16,23 @@ using namespace std;
 
 #include "cocos2d.h"
 #include "Live2dXGrid.h"
+#include "Live2dXUnitAnimation.h"
+#include "Live2dXAnimation.h"
+#include "Live2dXTouchAnimation.h"
 using namespace cocos2d;
 
+class Live2dXUnit;
 class Live2dXNode:public CCNode
 {
 public:
     Live2dXNode();
     ~Live2dXNode();
-public:
-    void visit();
-public:
-    void runAnimation(const string& anim_name);
+    void stopAllAnimations();
+    void reset();
 private:
     vector<Live2dXGrid*> m_all_grid;
-    map<string,int> m_grid_for_key;
+    Live2dXTouchAnimation* m_touch_animation;
+    map<string,Live2dXAnimation*> m_animations;
 };
 
 #endif /* defined(__live2d_x__Live2dXNode__) */

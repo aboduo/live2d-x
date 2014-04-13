@@ -47,67 +47,75 @@ bool AppDelegate::applicationDidFinishLaunching()
     pDirector->setProjection(kCCDirectorProjection2D);
 
     // set FPS. the default value is 1.0/60 if you don't call this
-    pDirector->setAnimationInterval(1.0 / 60);
+    pDirector->setAnimationInterval(1.0 / 30);
     
     pDirector->setDisplayStats(true);
 
     // register lua engine
-    CCLuaEngine *pEngine = CCLuaEngine::defaultEngine();
-    CCScriptEngineManager::sharedManager()->setScriptEngine(pEngine);
-
-    CCLuaStack *pStack = pEngine->getLuaStack();
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    // load framework
-    pStack->loadChunksFromZIP("res/framework_precompiled.zip");
-
-    // set script path
-    string path = CCFileUtils::sharedFileUtils()->fullPathForFilename("scripts/main.lua");
-#else
-    // load framework
-    if (m_projectConfig.isLoadPrecompiledFramework())
-    {
-        const string precompiledFrameworkPath = SimulatorConfig::sharedDefaults()->getPrecompiledFrameworkPath();
-        pStack->loadChunksFromZIP(precompiledFrameworkPath.c_str());
-    }
-
-    // set script path
-    string path = CCFileUtils::sharedFileUtils()->fullPathForFilename(m_projectConfig.getScriptFileRealPath().c_str());
-#endif
-
-    size_t pos;
-    while ((pos = path.find_first_of("\\")) != std::string::npos)
-    {
-        path.replace(pos, 1, "/");
-    }
-    size_t p = path.find_last_of("/\\");
-    if (p != path.npos)
-    {
-        const string dir = path.substr(0, p);
-        pStack->addSearchPath(dir.c_str());
-
-        p = dir.find_last_of("/\\");
-        if (p != dir.npos)
-        {
-            pStack->addSearchPath(dir.substr(0, p).c_str());
-        }
-    }
-
-    string env = "__LUA_STARTUP_FILE__=\"";
-    env.append(path);
-    env.append("\"");
-    pEngine->executeString(env.c_str());
+//    CCLuaEngine *pEngine = CCLuaEngine::defaultEngine();
+//    CCScriptEngineManager::sharedManager()->setScriptEngine(pEngine);
+//
+//    CCLuaStack *pStack = pEngine->getLuaStack();
+//
+//#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+//    // load framework
+//    pStack->loadChunksFromZIP("res/framework_precompiled.zip");
+//
+//    // set script path
+//    string path = CCFileUtils::sharedFileUtils()->fullPathForFilename("scripts/main.lua");
+//#else
+//    // load framework
+//    if (m_projectConfig.isLoadPrecompiledFramework())
+//    {
+//        const string precompiledFrameworkPath = SimulatorConfig::sharedDefaults()->getPrecompiledFrameworkPath();
+//        pStack->loadChunksFromZIP(precompiledFrameworkPath.c_str());
+//    }
+//
+//    // set script path
+//    string path = CCFileUtils::sharedFileUtils()->fullPathForFilename(m_projectConfig.getScriptFileRealPath().c_str());
+//#endif
+//
+//    size_t pos;
+//    while ((pos = path.find_first_of("\\")) != std::string::npos)
+//    {
+//        path.replace(pos, 1, "/");
+//    }
+//    size_t p = path.find_last_of("/\\");
+//    if (p != path.npos)
+//    {
+//        const string dir = path.substr(0, p);
+//        pStack->addSearchPath(dir.c_str());
+//
+//        p = dir.find_last_of("/\\");
+//        if (p != dir.npos)
+//        {
+//            pStack->addSearchPath(dir.substr(0, p).c_str());
+//        }
+//    }
+//
+//    string env = "__LUA_STARTUP_FILE__=\"";
+//    env.append(path);
+//    env.append("\"");
+//    pEngine->executeString(env.c_str());
+//    
+//    lua_pushcfunction(pStack->getLuaState(), lua_init_sprite);
+//    lua_setglobal(pStack->getLuaState(), "init_sprite");
+//    lua_pushcfunction(pStack->getLuaState(), lua_ruyao);
+//    lua_setglobal(pStack->getLuaState(), "ruyao");
     
-    lua_pushcfunction(pStack->getLuaState(), lua_init_sprite);
-    lua_setglobal(pStack->getLuaState(), "init_sprite");
-    lua_pushcfunction(pStack->getLuaState(), lua_ruyao);
-    lua_setglobal(pStack->getLuaState(), "ruyao");
+//    CCLOG("------------------------------------------------");
+//    CCLOG("LOAD LUA FILE: %s", path.c_str());
+//    CCLOG("------------------------------------------------");
+//    pEngine->executeScriptFile(path.c_str());
     
-    CCLOG("------------------------------------------------");
-    CCLOG("LOAD LUA FILE: %s", path.c_str());
-    CCLOG("------------------------------------------------");
-    pEngine->executeScriptFile(path.c_str());
+    CCScene* scene = CCScene::create();
+    pDirector->runWithScene(scene);
+//    Live2dXSprite* sprite = Live2dXSprite::create("/Users/Sanae/Documents/live2d_x/live2d_x/res/temp.jpg", "/Users/Sanae/Documents/live2d_x/live2d_x/res/temp.plist");
+//    sprite->setAnchorPoint(ccp(0,0));
+//    scene->addChild(sprite);
     
+    Live2dXNode* node = new Live2dXNode();
+    scene->addChild(node);
     
     return true;
 }

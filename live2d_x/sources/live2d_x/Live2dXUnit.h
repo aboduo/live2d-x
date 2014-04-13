@@ -17,7 +17,9 @@ class Live2dXGrid;
 //三角形索引
 struct Live2dXTriangle
 {
-    GLushort m_point_index[3];
+    GLushort first;
+    GLushort second;
+    GLushort three;
 };
 
 class Live2dXUnit
@@ -25,12 +27,13 @@ class Live2dXUnit
 public:
     Live2dXUnit();
     ~Live2dXUnit();
-public:
-    bool initWithConfig(CCDictionary* config);
+    static Live2dXUnit* create(const char* file);
     void draw();
 private:
     vector<Live2dX_UV> m_all_uv;
     vector<Live2dX_Vertex> m_orgin_vertex;
+    vector<Live2dX_Vertex> m_now_vertex;
+    vector<Live2dX_Color> m_now_color;
     vector<Live2dXTriangle> m_all_triangle;
     GLuint m_texture;
     Live2dXGrid* m_grid; //本部件所属的网格曲面

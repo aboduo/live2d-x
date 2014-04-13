@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6636097C18FA2A0B0033226B /* Live2dXUnitAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636097A18FA2A0B0033226B /* Live2dXUnitAnimation.cpp */; };
+		6636098018FA2A8D0033226B /* Live2dXAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636097E18FA2A8D0033226B /* Live2dXAnimation.cpp */; };
+		6636098318FA2AE30033226B /* Live2dXTouchAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636098118FA2AE30033226B /* Live2dXTouchAnimation.cpp */; };
 		66AB93E218F839AA006042A8 /* Live2dXAnimManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AB93DD18F839AA006042A8 /* Live2dXAnimManager.cpp */; };
 		66AB93E318F839AA006042A8 /* Live2dXUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AB93E018F839AA006042A8 /* Live2dXUnit.cpp */; };
 		66AB93E618F839D3006042A8 /* Live2dXGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AB93E418F839D3006042A8 /* Live2dXGrid.cpp */; };
@@ -50,6 +53,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6636097A18FA2A0B0033226B /* Live2dXUnitAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Live2dXUnitAnimation.cpp; sourceTree = "<group>"; };
+		6636097B18FA2A0B0033226B /* Live2dXUnitAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Live2dXUnitAnimation.h; sourceTree = "<group>"; };
+		6636097E18FA2A8D0033226B /* Live2dXAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Live2dXAnimation.cpp; sourceTree = "<group>"; };
+		6636097F18FA2A8D0033226B /* Live2dXAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Live2dXAnimation.h; sourceTree = "<group>"; };
+		6636098118FA2AE30033226B /* Live2dXTouchAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Live2dXTouchAnimation.cpp; sourceTree = "<group>"; };
+		6636098218FA2AE30033226B /* Live2dXTouchAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Live2dXTouchAnimation.h; sourceTree = "<group>"; };
 		66AB93DD18F839AA006042A8 /* Live2dXAnimManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Live2dXAnimManager.cpp; sourceTree = "<group>"; };
 		66AB93DE18F839AA006042A8 /* Live2dXAnimManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Live2dXAnimManager.h; sourceTree = "<group>"; };
 		66AB93DF18F839AA006042A8 /* Live2dXTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Live2dXTypes.h; sourceTree = "<group>"; };
@@ -136,6 +145,12 @@
 				66AB93E518F839D3006042A8 /* Live2dXGrid.h */,
 				66AB93E718F83F16006042A8 /* Live2dXNode.cpp */,
 				66AB93E818F83F16006042A8 /* Live2dXNode.h */,
+				6636097A18FA2A0B0033226B /* Live2dXUnitAnimation.cpp */,
+				6636097B18FA2A0B0033226B /* Live2dXUnitAnimation.h */,
+				6636097E18FA2A8D0033226B /* Live2dXAnimation.cpp */,
+				6636097F18FA2A8D0033226B /* Live2dXAnimation.h */,
+				6636098118FA2AE30033226B /* Live2dXTouchAnimation.cpp */,
+				6636098218FA2AE30033226B /* Live2dXTouchAnimation.h */,
 			);
 			path = live2d_x;
 			sourceTree = "<group>";
@@ -319,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66AB93E918F83F16006042A8 /* Live2dXNode.cpp in Sources */,
+				6636097C18FA2A0B0033226B /* Live2dXUnitAnimation.cpp in Sources */,
 				66AB93E318F839AA006042A8 /* Live2dXUnit.cpp in Sources */,
 				F4B0814A175C89050029F472 /* AppController.mm in Sources */,
 				66C0030118F04F08008259F1 /* Live2dXSprite.cpp in Sources */,
@@ -328,7 +344,9 @@
 				F4B0815F175C8A1E0029F472 /* SimulatorConfig.cpp in Sources */,
 				F432397B176433E5008C4624 /* ProjectConfigDialogController.mm in Sources */,
 				F49DC887177C0C5E00D20226 /* NSApplication+SheetAdditions.m in Sources */,
+				6636098318FA2AE30033226B /* Live2dXTouchAnimation.cpp in Sources */,
 				66AB93E218F839AA006042A8 /* Live2dXAnimManager.cpp in Sources */,
+				6636098018FA2A8D0033226B /* Live2dXAnimation.cpp in Sources */,
 				F416EF04177E914600653960 /* PlayerPreferencesDialogController.m in Sources */,
 				F4D73A6017A6490A00FA7398 /* ConsoleWindowController.m in Sources */,
 			);

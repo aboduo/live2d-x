@@ -57,6 +57,12 @@ struct CCSize
     float height;
 };
 
+struct CCPoint
+{
+    float x;
+    float y;
+};
+
 #define CC_ASSERT(o) Q_ASSERT(o)
 #define CCAssert(a,b) Q_ASSERT_X(a,b,"")
 

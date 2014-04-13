@@ -19,11 +19,11 @@ using namespace std;
 using namespace cocos2d;
 #else
 
-#include "../../live2d_x_editor/cocos2d/CCTypes.h"
-#include "../../live2d_x_editor/cocos2d/CCString.h"
-#include "../../live2d_x_editor/cocos2d/CCSprite.h"
-#include "../../live2d_x_editor/cocos2d/CCDictionary.h"
-#include "../../live2d_x_editor/cocos2d/CCTime.h"
+#include "../../../live2d_x_editor/cocos2d/CCTypes.h"
+#include "../../../live2d_x_editor/cocos2d/CCString.h"
+#include "../../../live2d_x_editor/cocos2d/CCSprite.h"
+#include "../../../live2d_x_editor/cocos2d/CCDictionary.h"
+#include "../../../live2d_x_editor/cocos2d/CCTime.h"
 
 #endif
 
