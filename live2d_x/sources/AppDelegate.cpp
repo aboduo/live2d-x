@@ -115,6 +115,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 //    scene->addChild(sprite);
     
     Live2dXNode* node = new Live2dXNode();
+    node->initWithFile("/Users/Sanae/Documents/live2d_x/live2d_x/res/tex1.plist");
     scene->addChild(node);
     
     return true;

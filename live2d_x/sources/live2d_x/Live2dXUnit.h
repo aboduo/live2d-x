@@ -22,12 +22,13 @@ struct Live2dXTriangle
     GLushort three;
 };
 
+class Live2dXNode;
 class Live2dXUnit
 {
 public:
     Live2dXUnit();
     ~Live2dXUnit();
-    static Live2dXUnit* create(const char* file);
+    bool initWithConfig(CCDictionary* config,Live2dXNode*);
     void draw();
 private:
     vector<Live2dX_UV> m_all_uv;
@@ -35,7 +36,7 @@ private:
     vector<Live2dX_Vertex> m_now_vertex;
     vector<Live2dX_Color> m_now_color;
     vector<Live2dXTriangle> m_all_triangle;
-    GLuint m_texture;
+    CCTexture2D* m_texture;
     Live2dXGrid* m_grid; //本部件所属的网格曲面
 };
 

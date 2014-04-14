@@ -7,61 +7,52 @@
 //
 
 #include "Live2dXUnit.h"
+#include "Live2dXNode.h"
 
 static map<GLuint,int> s_textures;
 
-Live2dXUnit* Live2dXUnit::create(const char* file)
-{
-//    Live2dXUnit* pRet = new Live2dXUnit();
-//    if (pRet && pRet->initWithFile(file))
-//    {
-//        pRet->autorelease();
-//        return pRet;
-//    }
-//    CC_SAFE_DELETE(pRet);
-    return NULL;
-}
 
 Live2dXUnit::Live2dXUnit()
 :m_texture(0)
 ,m_grid(NULL)
 {
-    CCTexture2D* texture = CCTextureCache::sharedTextureCache()->addImage("/Users/Sanae/Documents/live2d_x/live2d_x/res/luka_2.png");
-    CC_ASSERT(texture);
-    m_texture = texture->getName();
-    m_all_uv.push_back({0,0});
-    m_all_uv.push_back({1,0});
-    m_all_uv.push_back({1,1});
-    m_all_uv.push_back({0,1});
-    
-    m_now_vertex.push_back({0,128,0});
-    m_now_vertex.push_back({122,128,0});
-    m_now_vertex.push_back({122,0,0});
-    m_now_vertex.push_back({0,0,0});
-    
-    m_now_color.push_back({0xff,0xff,0xff,0xff});
-    m_now_color.push_back({0xff,0xff,0xff,0xff});
-    m_now_color.push_back({0xff,0xff,0xff,0xff});
-    m_now_color.push_back({0xff,0xff,0xff,0xff});
-    
-    m_all_triangle.push_back({0,1,2});
-    m_all_triangle.push_back({0,2,3});
-    
-    
 }
 
 Live2dXUnit::~Live2dXUnit()
 {
-    if (m_texture != 0)
+    CC_SAFE_RELEASE(m_texture);
+}
+
+bool Live2dXUnit::initWithConfig(CCDictionary* config,Live2dXNode* orginNode)
+{
+    int textureid = config->valueForKey("texture")->intValue();
+    m_texture = orginNode->m_textures[textureid];
+    m_texture->retain();
+    typeAt(CCArray, uv, config);
+    typeAt(CCArray, vertex, config);
+    for (int i = 0; i < uv->count(); ++i)
     {
-        int count = s_textures[m_texture];
-        --count;
-        if(count <= 0)
-        {
-            s_textures.erase(m_texture);
-            ccGLDeleteTexture(m_texture);
-        }
+        CCArray* pos = (CCArray*)uv->objectAtIndex(i);
+        float u = ((CCString*)pos->objectAtIndex(0))->floatValue();
+        float v = ((CCString*)pos->objectAtIndex(1))->floatValue();
+        m_all_uv.push_back({u,v});
+        
+        CCArray* ver = (CCArray*)vertex->objectAtIndex(i);
+        float x = ((CCString*)ver->objectAtIndex(0))->floatValue();
+        float y = ((CCString*)ver->objectAtIndex(1))->floatValue();
+        m_now_vertex.push_back({x,y,0});
+        m_now_color.push_back(ccc4(0xff, 0xff, 0xff, 0xff));
     }
+    typeAt(CCArray, triangle, config);
+    for (int i = 0; i < triangle->count(); ++i)
+    {
+        CCArray* tri = (CCArray*)triangle->objectAtIndex(i);
+        int i_0 = ((CCString*)tri->objectAtIndex(0))->intValue();
+        int i_1 = ((CCString*)tri->objectAtIndex(1))->intValue();
+        int i_2 = ((CCString*)tri->objectAtIndex(2))->intValue();
+        m_all_triangle.push_back({(GLushort)i_0,(GLushort)i_1,(GLushort)i_2});
+    }
+    return true;
 }
 
 void Live2dXUnit::draw()
@@ -74,7 +65,7 @@ void Live2dXUnit::draw()
 #define Live2dX_UV_Size sizeof(Live2dX_UV)
 #define Live2dX_Color_Size sizeof(Live2dX_Color)
    
-    ccGLBindTexture2D( m_texture );
+    ccGLBindTexture2D( m_texture->getName() );
 
     ccGLEnableVertexAttribs(kCCVertexAttribFlag_PosColorTex );
     

@@ -35,6 +35,7 @@ typedef ccVertex3F Live2dX_Vertex;
 
 #define floatAtArray(index,array) ((CCString*)array->objectAtIndex(index))->floatValue()
 #define intAtArray(index,array) ((CCString*)array->objectAtIndex(index))->intValue()
+#define typeAt(type,name,object) type* name = (type*)object->objectForKey(#name)
 
 struct Live2dX_Triangle
 {

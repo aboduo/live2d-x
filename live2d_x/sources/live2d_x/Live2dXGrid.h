@@ -19,14 +19,16 @@ class Live2dXGrid:public CCNode
 public:
     Live2dXGrid();
     ~Live2dXGrid();
+    static Live2dXGrid* create(CCDictionary* config,Live2dXNode* orginNode);
+    bool initWithConfig(CCDictionary* config,Live2dXNode* orginNode);
     void draw();
 private:
     Live2dX_Pos m_grid_handler[8]; //曲面网格的8个手柄端点（4端点，每端点2个）
     Live2dXUnit* m_bind_unit;
     int m_width_count; //宽的网格数
     int m_height_count; //高的网格数
-    int m_z;
     vector<Live2dXUnitAnimation*> m_all_unit_animations;
+//    friend class Live2dXNode;
 };
 
 #endif /* defined(__live2d_x__Live2dXGrid__) */

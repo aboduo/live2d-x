@@ -10,10 +10,23 @@
 #define __live2d_x__Live2dXUnitAnimation__
 
 #include <iostream>
+#include "Live2dXTypes.h"
+
+enum Live2dXUnitAxisType
+{
+    Live2dXUnitAxisX = 0,
+    Live2dXUnitAxisY,
+    Live2dXUnitAxisXY,
+};
 
 class Live2dXUnitAnimation
 {
 public:
+    Live2dXUnitAnimation();
+    ~Live2dXUnitAnimation();
+private:
+    Live2dXUnitAxisType m_type;
+    vector<Live2dX_Vertex> m_vertex[9];
     
 };
 

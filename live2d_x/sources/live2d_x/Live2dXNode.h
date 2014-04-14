@@ -27,12 +27,19 @@ class Live2dXNode:public CCNode
 public:
     Live2dXNode();
     ~Live2dXNode();
+    bool initWithFile(const char* path);
+    bool initWithConfig(CCDictionary* config);
     void stopAllAnimations();
     void reset();
 private:
-    vector<Live2dXGrid*> m_all_grid;
+    map<string,Live2dXGrid*> m_all_grid;
     Live2dXTouchAnimation* m_touch_animation;
     map<string,Live2dXAnimation*> m_animations;
+    vector<CCTexture2D*> m_textures;
+    string m_config_path;
+    
+    friend class Live2dXGrid;
+    friend class Live2dXUnit;
 };
 
 #endif /* defined(__live2d_x__Live2dXNode__) */
